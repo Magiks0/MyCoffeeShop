@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}MyCoffeeShop | Contact{% endblock title%}
+{% block stylesheets %}<link rel="stylesheet" href="{{ asset('styles/style.css') }}">{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('scripts/slider.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+<header>
+    <nav>
+    <li><a href="/">Home</a></li>
+    <li><a href="/product">Nos produits</a></li>
+    <li><a href="/contact">Contactez-nous</a></li>
+    {# <img src="{{ asset('assets/macchiato.jpg') }}" alt="macchiato"> #}
+    </nav>
+</header>
+
+
+    <h1>Contactez-nous</h1>
+
+    <form method="post">
+        <label for="name">Nom :</label>
+        <input type="text" id="lastname" name="lastname" required>
+
+        <label for="name">Prenom :</label>
+        <input type="text" id="firstname" name="firstname" required>
+
+        <label for="email">E-mail :</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="subject">Téléphone :</label>
+        <input type="text" id="tel" name="tel" required>
+
+        <label for="message">Message :</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+
+        <button type="submit">Envoyer</button>
+    </form>
+
+{% endblock body %}

@@ -1,0 +1,11 @@
+{
+  "name": "mycoffeeshop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile": "sass public/styles/style.scss public/styles/style.css --watch"
+  },
+  "author": "",
+  "license": "ISC"
+}
