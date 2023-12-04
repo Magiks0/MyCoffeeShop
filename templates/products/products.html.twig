@@ -5,22 +5,16 @@
 {% endblock %}
 
 {% block body %}
-<br>
-<br>
-<br>
-<br>
-<br>
+<section class="products">
+<div class="products__contain">
 {% for product in products %}
-{% set id = product.getId() %} {# Remplacez 123 par la valeur réelle de votre ID #}
-{% set name = product.getName() %} {# Remplacez 'example-name' par la valeur réelle de votre nom #}
-
-
-<div class="contain_slider">
-  <div>
-    <h1>{{ product.name }}</h1>
-    <a href="{{ path('product', {'id': id, 'name': name}) }}">Voir plus</a>
+  <div class="products__contain__content">
+    <img src="{{ asset('assets/best-seller.jpg') }}">
+    <p class="products__contain__content__name">{{ product.name }}</p>
+    <a class="products__contain__content__link" href="{{ path('product', {'name': product.name}) }}">Voir plus</a>
   </div>
-</div>
 {% endfor %}
-    
+</div>
+    {{ knp_pagination_render(products) }}
+</section>
 {% endblock body %}

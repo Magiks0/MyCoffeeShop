@@ -4,12 +4,23 @@
   box-sizing: border-box;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
+* body header {
+  position: absolute;
+  z-index: 15;
+  width: 100%;
+  background: black;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
 * body header nav {
+  position: relative;
   display: flex;
+  align-items: center;
   height: 100px;
 }
 * body header nav ul {
   display: flex;
+  position: absolute;
   justify-content: flex-end;
   align-items: center;
   width: 100%;
@@ -25,7 +36,7 @@
   text-decoration: none;
 }
 * body header nav ul li a.active {
-  color: black;
+  color: white;
 }
 * body header nav img {
   margin-left: 25px;
@@ -46,8 +57,8 @@
 * .slider h1,
 * .slider aside,
 * .slider .container {
-  margin: 0 auto 20px;
-  max-width: 500px;
+  width: 100%;
+  height: 100vh;
 }
 * .slider .container {
   border-radius: 5px;
@@ -75,6 +86,7 @@
   position: relative;
   text-decoration: none;
   transition: opacity 0.5s;
+  width: 100%;
 }
 * .slider .slideshow a:after {
   border-color: #FFF #FFF transparent transparent;
@@ -101,7 +113,7 @@
   background-color: #FFF;
   box-sizing: border-box;
   display: none;
-  height: 100%;
+  height: 75%;
   position: absolute;
   width: 100%;
 }
@@ -120,6 +132,9 @@
 * .slider .slideshow .slide img {
   border-radius: 5px;
   width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  object-position: top;
 }
 * .slider .pagination {
   display: flex;
@@ -144,6 +159,39 @@
 * .slider a:target {
   color: red;
 }
+* .bestSellers {
+  padding: 50px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+* .bestSellers__title {
+  font-size: 35px;
+}
+* .bestSellers__contain {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+* .bestSellers__contain__div {
+  width: 10%;
+  display: flex;
+  flex-direction: column;
+  margin: 15px;
+}
+* .bestSellers__contain__div__content {
+  width: 100%;
+}
+* .bestSellers__contain__div__content__title {
+  font-size: 20px;
+}
+* .bestSellers__contain__div__content__description {
+  font-size: 12px;
+}
+* .bestSellers__contain__div:hover {
+  transform: scale(1.05);
+  transition: all 125ms ease;
+}
 * .aboutUs .aboutUsTitle {
   width: 100%;
   display: flex;
@@ -154,6 +202,27 @@
   line-height: 30px;
   margin: 0 100px 0 100px;
   text-align: center;
+}
+* .products {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  padding-top: 100px;
+}
+* .products__contain {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+* .products__contain__content {
+  width: 20%;
+  margin: 15px;
+}
+* .products__contain__content img {
+  width: 100%;
 }
 * footer {
   background: rgb(165, 93, 42);

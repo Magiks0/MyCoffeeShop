@@ -1,11 +1,10 @@
-<?php
+<?php 
 
 namespace App\Entity;
 
 use App\Repository\ProductRepository;
 use Doctrine\ORM\Mapping as ORM;
-
-    #[ORM\Entity(repositoryClass: ProductRepository::class)]
+#[ORM\Entity(repositoryClass: ProductRepository::class )]
 class Product
 {
     #[ORM\Id]
@@ -13,37 +12,36 @@ class Product
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column]
     private ?string $name = null;
 
     #[ORM\Column]
-    private ?float $price = null;
+    private ?string $description = null;
 
     #[ORM\Column]
-    private ?float $note = null;
+    private ?int $price = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column]
+    private ?int $note = null;
+
+    #[ORM\Column]
     private ?string $family = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column]
     private ?string $country = null;
 
     #[ORM\Column]
-    private ?int $id_category = null;
+    private ?bool $bestSeller = false;
 
-    #[ORM\Column]
-    private ?int $id_brand = null;
+    #[ORM\ManyToOne(inversedBy: Product::class, targetEntity: Brand::class)]
+    private Brand $brand;
+
+    #[ORM\ManyToOne(inversedBy: Product::class, targetEntity: Category::class)]
+    private Category $category;
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function setId(int $id): static
-    {
-        $this->id = $id;
-
-        return $this;
     }
 
     public function getName(): ?string
@@ -51,35 +49,19 @@ class Product
         return $this->name;
     }
 
-    public function setName(string $name): static
+    public function getDescription(): ?string
     {
-        $this->name = $name;
-
-        return $this;
+        return $this->description;
     }
 
-    public function getPrice(): ?float
+    public function getPrice(): ?int
     {
         return $this->price;
     }
 
-    public function setPrice(float $price): static
-    {
-        $this->price = $price;
-
-        return $this;
-    }
-
-    public function getNote(): ?float
+    public function getNote(): ?int
     {
         return $this->note;
-    }
-
-    public function setNote(float $note): static
-    {
-        $this->note = $note;
-
-        return $this;
     }
 
     public function getFamily(): ?string
@@ -87,46 +69,80 @@ class Product
         return $this->family;
     }
 
-    public function setFamily(string $family): static
-    {
-        $this->family = $family;
-
-        return $this;
-    }
-
     public function getCountry(): ?string
     {
         return $this->country;
     }
 
-    public function setCountry(string $country): static
+    public function isBestSeller(): bool
+    {
+        return $this->bestSeller;
+    }
+
+    public function getBrand(): Brand
+    {
+        return $this->brand;
+    }
+
+    public function getCategory(): Category
+    {
+        return $this->category;
+    }
+
+    public function getBestSeller() : bool
+    {
+        return $this->bestSeller;
+    }
+
+    // Setters
+
+    public function setID(int $id){
+        $this->id = $id;
+    }
+
+    public function setName(?string $name):void
+    {
+        $this->name = $name;
+    }
+
+    public function setDescription(?string $description): void
+    {
+        $this->description = $description;
+    }
+
+    public function setPrice(?int $price): void
+    {
+        $this->price = $price;
+    }
+
+    public function setNote(?int $note): void
+    {
+        $this->note = $note;
+    }
+
+    public function setFamily(?string $family): void
+    {
+        $this->family = $family;
+    }
+
+    public function setCountry(?string $country): void
     {
         $this->country = $country;
-
-        return $this;
     }
 
-    public function getIdCategory(): ?int
+    public function setBestSeller(bool $bestSeller): void
     {
-        return $this->id_category;
+        $this->bestSeller = $bestSeller;
     }
 
-    public function setIdCategory(int $id_category): static
+    public function setBrand(Brand $brand): void
     {
-        $this->id_category = $id_category;
-
-        return $this;
+        $this->brand = $brand;
     }
 
-    public function getIdBrand(): ?int
+    public function setCategory(Category $category): void
     {
-        return $this->id_brand;
+        $this->category = $category;
     }
 
-    public function setIdBrand(int $id_brand): static
-    {
-        $this->id_brand = $id_brand;
-
-        return $this;
-    }
 }

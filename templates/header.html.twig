@@ -4,12 +4,12 @@
 			<img src="{{ asset('assets/logoCoffee.png')}}" alt="logo">
 			<ul>
 				<li><a class="{% if app.request.attributes.get('_route') == 'home' %}active{% endif %}" href="{{ path('home') }}">Home</a></li>
-				<li><a class="{% if app.request.attributes.get('_route') == 'products' %}active{% endif %}" href="{{ path('products') }}">Nos produits</a></li>
+				<li><a class="{% if app.request.attributes.get('_route') == 'products' or app.request.attributes.get('_route') == 'product'  %}active{% endif %}" href="{{ path('products') }}">Nos produits</a></li>
 				<li><a class="{% if app.request.attributes.get('_route') == 'contact' %}active{% endif %}" href="{{ path('contact') }}">Contactez - nous</a></li>
+				<form name="search" method="GET">
+				<input type="text" id="search" name="search" required placeholder="Rechercher..">
+				</form>
 			</ul>
-            <form name="search" method="GET">
-            <input type="text" id="search" name="search" required placeholder="Rechercher..">
-            </form>
 		</nav>
 	</header>
 {% endblock %}
